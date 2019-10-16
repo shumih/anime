@@ -12,6 +12,22 @@
  * animejs.com
  */
 
+// polyfills
+
+global.requestAnimationFrame = function(callback, element) {
+  var currTime = new Date().getTime();
+  var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+  var id = global.setTimeout(function() {
+    callback(currTime + timeToCall);
+  }, timeToCall);
+  lastTime = currTime + timeToCall;
+  return id;
+};
+
+global.cancelAnimationFrame = function(id) {
+  clearTimeout(id);
+};
+
 // Defaults
 
 var defaultInstanceSettings = {
@@ -983,7 +999,7 @@ var raf;
 
 var engine = (function() {
   function play() {
-    raf = requestAnimationFrame(step);
+    raf = global.requestAnimationFrame(step);
   }
   function step(t) {
     var activeInstancesLength = activeInstances.length;
