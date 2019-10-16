@@ -6,9 +6,6 @@
   "description": "JavaScript animation engine",
   "license": "MIT",
   "author": "Julian Garnier <hello@julian.gr>",
-  "files": [
-    "bin"
-  ],
   "scripts": {
     "build": "node build"
   },
