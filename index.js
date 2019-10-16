@@ -169,7 +169,9 @@ function spring(string, duration) {
 // Basic steps easing implementation https://developer.mozilla.org/fr/docs/Web/CSS/transition-timing-function
 
 function steps(steps) {
-  if (steps === void 0) { steps = 10; }
+  if (steps === void 0) {
+    steps = 10;
+  }
 
   return function(t) {
     return Math.round(t * steps) * (1 / steps);
@@ -327,8 +329,12 @@ var penner = (function() {
       };
     },
     Elastic: function(amplitude, period) {
-      if (amplitude === void 0) { amplitude = 1; }
-      if (period === void 0) { period = 0.5; }
+      if (amplitude === void 0) {
+        amplitude = 1;
+      }
+      if (period === void 0) {
+        period = 0.5;
+      }
 
       var a = minMax(amplitude, 1, 10);
       var p = minMax(period, 0.1, 2);
@@ -743,7 +749,9 @@ function flattenKeyframes(keyframes) {
     });
   };
 
-  for (var i = 0; i < propertyNames.length; i++) { loop(i); }
+  for (var i = 0; i < propertyNames.length; i++) {
+    loop(i);
+  }
   return properties;
 }
 
@@ -1023,7 +1031,9 @@ if (typeof document !== "undefined") {
 // Public Instance
 
 function anime(params) {
-  if (params === void 0) { params = {}; }
+  if (params === void 0) {
+    params = {};
+  }
 
   var startTime = 0,
     lastTime = 0,
@@ -1033,11 +1043,9 @@ function anime(params) {
   var resolve = null;
 
   function makePromise(instance) {
-    var promise =
-      window.Promise &&
-      new Promise(function(_resolve) {
-        return (resolve = _resolve);
-      });
+    var promise = new Promise(function(_resolve) {
+      return (resolve = _resolve);
+    });
     instance.finished = promise;
     return promise;
   }
@@ -1219,7 +1227,7 @@ function anime(params) {
           instance.completed = true;
           setCallback("loopComplete");
           setCallback("complete");
-          if (!instance.passThrough && "Promise" in window) {
+          if (!instance.passThrough) {
             resolve();
             promise = makePromise(instance);
           }
@@ -1355,7 +1363,9 @@ function removeTargets(targets) {
 // Stagger helpers
 
 function stagger(val, params) {
-  if (params === void 0) { params = {}; }
+  if (params === void 0) {
+    params = {};
+  }
 
   var direction = params.direction || "normal";
   var easing = params.easing ? parseEasings(params.easing) : null;
@@ -1425,7 +1435,9 @@ function stagger(val, params) {
 // Timeline
 
 function timeline(params) {
-  if (params === void 0) { params = {}; }
+  if (params === void 0) {
+    params = {};
+  }
 
   var tl = anime(params);
   tl.duration = 0;

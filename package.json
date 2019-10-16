@@ -4,8 +4,6 @@
   "homepage": "http://animejs.com",
   "repository": "shumih/anime",
   "description": "JavaScript animation engine",
-  "module": "lib/index.js",
-  "main": "lib/index.js",
   "license": "MIT",
   "author": "Julian Garnier <hello@julian.gr>",
   "files": [
