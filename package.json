@@ -7,7 +7,7 @@
   "license": "MIT",
   "author": "Julian Garnier <hello@julian.gr>",
   "files": [
-    "lib"
+    "bin"
   ],
   "scripts": {
     "build": "node build"
